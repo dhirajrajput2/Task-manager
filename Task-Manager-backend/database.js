@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
 
-const mongoUrl = "mongodb+srv://vaibhavshelke218:aVQ0mwMfgAxckLNh@taskmanager.m8tbx.mongodb.net/?retryWrites=true&w=majority&appName=taskManager";
-
 const connectToMongo = async () => {
   try {
-    await mongoose.connect(mongoUrl);
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("Database is connected");
   } catch (error) {
     console.error("Database connection failed:", error.message);
@@ -12,3 +10,4 @@ const connectToMongo = async () => {
 };
 
 export default connectToMongo;
+
